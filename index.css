@@ -11,17 +11,20 @@
 body{
     background-color: #020202;
 }
-.parent-container{
+.parent-container, .login-container{
     background-color: #020202;
     padding: 5px 140px;
     color: white;
-    display: flex;
+    display: none;
     justify-content: right;
     align-items: center;
     margin-top: 5vh;
 }
-.input-container{
+.login-container{
     display: flex;
+}
+.input-container{
+    display: none;
     justify-content: right;
     align-items: center;
     display: flex;
@@ -37,6 +40,11 @@ body{
     width: 90vh;
     height: 60vh;
     margin-right: 25vh;
+}
+#login-con {
+    display: inline-block;
+    align-items: center;
+    padding: 1rem 10rem;
 }
 .input-container label{
     font-weight: bold;

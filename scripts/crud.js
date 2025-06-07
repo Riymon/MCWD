@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Sending data:', data);
 
         try {
-            const response = await fetch('crud.php', {
+            const response = await fetch('php/crud.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)

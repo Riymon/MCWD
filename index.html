@@ -12,6 +12,27 @@
         </div>
     </header>
     <body>
+        <div class="login-container">
+            <div class="input-container">
+                <div id="login-con">
+                    <div>
+                        <h2>Admin Login</h2>
+                    </div>
+                    <form method="post">
+                        <div>
+                            <label>Admin Username:</label>
+                            <input type="text" id="admin-user" class="input" require/>
+                        </div>
+                        <div>
+                            <label>Admin Password:</label>
+                            <input type="text" id="admin-pass" class="input" require/>
+                        </div>
+                    </form>
+                    <button type="button" class="input" id="login">Login</button>
+
+                </div>
+            </div>
+        </div>
         <div class="parent-container">
             <div class="input-container">
                 <form>
@@ -129,7 +150,7 @@
                 </form>
             </div> 
             
-        <div class="parent-container" id="createcon">
+        <div class="parent-container" id="paymentcon">
             <div class="input-container" id="inp">
             <form method="post">
                 <h3>Payments</h3>
@@ -180,8 +201,9 @@
                 </form> 
             </div>
         </div>
+     <script type="module" src="scripts/admin.js"></script>    
      <script type="module" src="scripts/index.js"></script>    
      <script type="module" src="scripts/crud.js"></script>  
      <script type="module" src="scripts/payment.js"></script>
     </body>
-</html>
+</html> 
