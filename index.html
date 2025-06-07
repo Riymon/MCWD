@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MCWD BILL Calculator</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <header>
+        <div class="header-text" >
+            <h1>MCWD Calculator</h1>
+        </div>
+    </header>
+    <body>
+        <div class="parent-container">
+            <div class="input-container">
+                <form>
+                    <div>
+                        <label>Consumer name:<input type="text" placeholder="Consumer name" class="input" id="consumer-name" require></label>
+                    </div>
+                    <div>
+                        <label>Address: <input type="text" id="consumer-address" class="input" readonly></label>
+                    </div>
+                    <div>
+                        <label>Account Code: <input type="text" id="con-account-code" class="input" readonly></label>
+                    </div>
+                    <div>
+                        <label>Type Connection: <input type="text" id="con-type" class="input" readonly></label>
+                    </div>
+                    <div>
+                        <label>Size of Connection: <input type="text" id="con-size" class="input" readonly></label>
+                    </div>
+                     <div>
+                        <label> Previous Month Meter Reading:<input type="number" id="con-pvr" class="input" placeholder="Enter ex.50"require/></label>
+                    </div>
+                    <div>
+                        <label> Current Month Meter Reading:<input type="number" id="con-curred" class="input" placeholder="Enter ex.100" require/></label>
+                    </div>
+                   <div>
+                        <label>Billing Month: 
+                            <select id="monthbill" class="input" require>
+                                <option value="">Select Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">Septermber</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                                <!-- Add more months as needed -->
+                            </select>
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit" class="input" id="fetch">Fetch</button>
+                    </div>
+                    <div>
+                        <button  type="submit" class="input" id="calculate">Calculate</button>
+                    </div>
+                </form>
+                <div class="results-container">
+                    <div class="charges" >
+                        <h2>Charges</h2>
+                        <h3>Consumer-name:</h3>
+                        <h3>Consume: </h3>
+                        <h3>Water Fee: </h3>
+                        <h3>Franchise Tax: </h3>
+                        <h3>PCA:</h3>
+                        <h3>PWA:</h3>
+                        <h3>Gross Current Bill:</h3>
+                        <h3>Date: </h3>
+                    </div>
+                    <div class="amount">
+                        <ul>
+                            <h2>Amount</h2>
+                            <h3 id="cons-label">Unknown</h3>
+                        </ul>
+                        <ul id="values">
+                        </ul>
+                        <ul>
+                            <h3 id="date">None</h3>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div><br>
+
+        <div class="parent-container" id="createcon">
+            <div class="input-container" id="inp">
+                <form method="post">
+                    <h3>Create Customer Account</h3>
+                    <div>
+                        <label>Consumer name:<input type="text" placeholder="Consumer name" class="input" id="consumer-name2" require></label>
+                    </div>
+                    <diV>
+                        <label>Consumer address:<input type="text" placeholder="Consumer address" class="input" id="consumer-address2"></label>
+                    </diV>
+                    <diV>
+                        <label>Account Code:<input type="number" placeholder="ex 46565232" class="input" id="con-account-code2" require></label>
+                    </diV>
+                    <diV>
+                        <label>Type:<input type="text" placeholder="Ex. Regular or Com/" class="input" id="con-type2"></label>
+                    </diV>
+                    <diV>
+                        <label>Size of Connection:</label>
+                        <select id="con-size2" class="input">
+                            <option value="1/2">1/2</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3/8">3/8</option>
+                            <option value="3/4">3/4</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                        </select>
+                    </diV>
+                    <div>
+                        <button type="submit" class="button" id="create" name="action" value="create">Create consumer</button>
+                        <button type="submit" class="button" id="update" name="action" value="update">Update consumer</button>
+                        <button type="submit" class="button" id="delete" name="action" value="delete">Delete consumer</button>
+                    </div>
+                </form>
+            </div> 
+            
+        <div class="parent-container" id="createcon">
+            <div class="input-container" id="inp">
+            <form method="post">
+                <h3>Payments</h3>
+                    <div>
+                        <label>Consumer Account Code:<input type="number" placeholder="Consumer Acc Code" class="input" id="pay-cons-id" require></label>
+                    </div>
+                     <div>
+                        <label>Charges ID:<input type="number" placeholder="" class="input" id="pay-cons-charges-id" require></label>
+                    </div>
+                    <diV>
+                        <label>Bill of Month:
+                            <select id="pay-cons-month-bill" class="input" require>
+                                <option value="">Select Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                                <!-- Add more months as needed -->
+                            </select>
+                        </label>
+                    </diV>
+                    <diV>
+                        <label>Payment Method:</label>
+                            <select id="pay-cons-payment-method" class="input" require>
+                                <option value="">Select Payment Method</option>
+                                <option value="In Cash">In Cash</option>
+                                <option value="GCash">GCash</option>
+                            </select>
+                    </diV>
+                    <div>
+                        <label>Amount:<input type="number" placeholder="" class="input" id="pay-cons-amount" require></label>
+                    </div>
+                    <div>
+                        <label>Charges:<input type="number" placeholder="" class="input" id="pay-cons-charges" require></label>
+                    </div>
+                    <div>
+                        <label>Change:<input type="number" placeholder="" class="input" id="pay-cons-change" readonly></label>
+                    </div>
+                    <button type="button" class="button" id="pay" name="action" value="pay">Pay Charge</button>
+                </form> 
+            </div>
+        </div>
+     <script type="module" src="scripts/index.js"></script>    
+     <script type="module" src="scripts/crud.js"></script>  
+     <script type="module" src="scripts/payment.js"></script>
+    </body>
+</html>

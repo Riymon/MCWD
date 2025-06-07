@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MCWD BILL Calculator</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <header>
+        <div class="header-text" >
+            <h1>MCWD Calculator</h1>
+        </div>
+    </header>
+    <body>
+        <div class="parent-container">
+            <div class="input-container">
+                <form>
+                    <div>
+                        <label>Consumer name:<input type="text" placeholder="Consumer name" class="input" id="consumer-name" require></label>
+                    </div>
+                    <diV>
+                        <label>Consumer address:<input type="text" placeholder="Consumer address" class="input" id="consumer-address"></label>
+                    </diV>
+                    <diV>
+                        <label>Account Code:<input type="number" placeholder="ex 46565232" class="input" id="con-account-code"></label>
+                    </diV>
+                    <diV>
+                        <label>Type:<input type="text" placeholder="Ex. Regular or Com/" class="input" id="con-type"></label>
+                    </diV>
+                    <diV>
+                        <label>Size of Connection:<select id="con-size" class="input">
+                            <option value="1/2">1/2</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3/8">3/8</option>
+                            <option value="3/4">3/4</option>
+                            <option value="4">4<option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <!-- Add all other valid options -->
+                        </select>
+                        </label>
+                    </diV>
+                    <diV>
+                        <label>Previous Month Meter Reading:<input type="number" placeholder="Ex. 500" class="input" id="con-pvr"></label>
+                    </diV>
+                    <diV>
+                        <label>Current Month Meter Reading:<input type="number" placeholder="Ex. 200" class="input" id="con-curred"></label>
+                    </diV>
+                    <div>
+                        <button class="input" id="calculate">Calculate</button>
+                    </div>
+                </form>
+                <div class="results-container">
+                    <div class="charges" >
+                        <h2>Charges</h2>
+                        <h3>Consumer-name:</h3>
+                        <h3>Consume: </h3>
+                        <h3>Water Fee: </h3>
+                        <h3>Franchise Tax: </h3>
+                        <h3>PCA:</h3>
+                        <h3>PWA:</h3>
+                        <h3>Gross Current Bill:</h3>
+                        <h3>Date: </h3>
+                    </div>
+                    <div class="amount">
+                        <ul>
+                            <h2>Amount</h2>
+                            <h3 id="cons-label">Unknown</h3>
+                        </ul>
+                        <ul id="values">
+                        </ul>
+                        <ul>
+                            <h3 id="date">None</h3>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div><br>
+
+        <div class="parent-container" id="createcon">
+            <div class="input-container" id="inp">
+                <form>
+                    <h3>Create Customer Account</h3>
+                    <div>
+                        <label>Consumer name:<input type="text" placeholder="Consumer name" class="input" id="consumer-name" require></label>
+                    </div>
+                    <diV>
+                        <label>Consumer address:<input type="text" placeholder="Consumer address" class="input" id="consumer-address"></label>
+                    </diV>
+                    <diV>
+                        <label>Account Code:<input type="number" placeholder="ex 46565232" class="input" id="con-account-code"></label>
+                    </diV>
+                    <diV>
+                        <label>Type:<input type="text" placeholder="Ex. Regular or Com/" class="input" id="con-type"></label>
+                    </diV>
+                    <diV>
+                        <label>Size of Connection:<select id="con-size" class="input">
+                            <option value="1/2">1/2</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3/8">3/8</option>
+                            <option value="3/4">3/4</option>
+                            <option value="4">4<option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            
+                            <!-- Add all other valid options -->
+                        </select>
+                        </label>
+                    </diV>
+                    <div>
+                        <button class="button" id="">Create consumer</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="input-container" id="inp">
+                <form>
+                    <h3>Update Consumer Account</h3>
+                      <diV>
+                        <label>Account Code:<input type="number" placeholder="ex 46565232" class="input" id="con-account-code"></label>
+                      </div>
+                    <div>
+                        <label>Consumers Set new Fullname:<input type="text" placeholder="Consumer name" class="input" id="consumer-name" require></label>
+                    </div>
+                    <diV>
+                        <label>Set new Consumer address:<input type="text" placeholder="Consumer address" class="input" id="consumer-address"></label>
+                    </diV>
+                    <div>
+                    <label>Set Size of Connection:<select id="new-con-size" class="input">
+                            <option value="Regular">Regular</option>
+                            <option value="Commoniun">Comm</option> 
+                        </select>                   
+                        </div>
+                    <div>
+                        <label>Set Size of Connection:<select id="new-con-size" class="input">
+                            <option value="1/2">1/2</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3/8">3/8</option>
+                            <option value="3/4">3/4</option>
+                            <option value="4">4<option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            
+                            <!-- Add all other valid options -->
+                        </select>
+                        </label>
+                    </diV>
+                    <div>
+                        <button class="button" id="">Update Consumer Details</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="input-container" id="inp">
+                <form>
+                    <h3>Delete Consumer Account</h3>
+                      <diV>
+                        <label>Account Code:<input type="number" placeholder="ex 46565232" class="input" id="con-account-code"></label>
+                      </div>
+                    <div>
+                        <button class="button" id="">Delete consumer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+            
+    <script type="module" src="index.js"></script>    
+    </body>
+</html>
