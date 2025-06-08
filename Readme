@@ -1,3 +1,10 @@
+This project is the improved version of my first-year midterm project, which was originally a C programming console interface for an MCWD calculator or simulator that calculates the water bill with the fees. This project is now integrated with a database using the XAMPP server. 
+
+Languages Used: PHP, JavaScript, CSS, HTML
+
+Metropolitan Cebu Water District (MCWD) is a Water Supply and Irrigation Systems, Energy, Utilities & Waste Treatment company located in the Philippines.
+
+
 
 Admin Authentication:
 
@@ -13,4 +20,4 @@ the following details then click create consumer button.
 
 3. if you want to delete an account just put the account code then click delete button.
 
-4. In a Main Form Put the complete fullname that you created consumer account then click button fetch. then fill the reamining field and select a bill month. and then click calculate it will display the MCWD bill details and recored in the database.
+4. In a Main Form Put the complete fullname that you created consumer account then click button fetch. then fill the reamining field and select a bill month. and then click calculate it will display the MCWD bill details and recorded in the database.
