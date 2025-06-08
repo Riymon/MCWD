@@ -135,7 +135,7 @@ document.getElementById('calculate').addEventListener('click', function (event) 
     let PWA = w_fee * 0.10;
     let Fr_tax = w_fee * 0.02;
     let gross = w_fee + Fr_tax + PCA + PWA;
-
+    gross = Math.round(gross * 100) / 100;
     // Display results
     conslabel.innerHTML = cons_name;
     let values = [cmp, w_fee, Fr_tax, PCA, PWA, gross];
@@ -149,10 +149,14 @@ document.getElementById('calculate').addEventListener('click', function (event) 
         display_values.appendChild(h3);
     });
 
+    if (isNaN(pmrv) || document.getElementById('con-pvr').value === '') {
+    alert("Please enter a valid previous reading!");
+    return;
+    }
         const data2 = {
             acc_code: con_account_code,
             current_reading: cmcurred,
-            previous_reading: pmrv,
+            previous_reading: pmrv.valueOf(),
             consume: cmp,
             water_fee: w_fee,
             ftax: Fr_tax,
@@ -162,8 +166,7 @@ document.getElementById('calculate').addEventListener('click', function (event) 
             size: size,
             monthbill: month_of_bill
         };
-        console.log(month_of_bill);
-        fetch('php/charges.php', {
+        fetch('charges.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -177,8 +180,8 @@ document.getElementById('calculate').addEventListener('click', function (event) 
             }
             return data;
         })
-        .then(data => {
-            console.log('Success:', data);
+        .then(data2 => {
+            console.log('Success:', data2);
             alert('Data saved successfully!');
         })
         .catch(error => {

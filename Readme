@@ -1,0 +1,16 @@
+
+Admin Authentication:
+
+USERNAME: Admin123
+PASSWORD: Admin14356
+
+How to use the system
+
+1. Create an Consumer Account located in a Create Customer Account Form input
+the following details then click create consumer button.
+
+2. If you want to update the specific account just fill the field the need to an update with the required account account code then click the update button.
+
+3. if you want to delete an account just put the account code then click delete button.
+
+4. In a Main Form Put the complete fullname that you created consumer account then click button fetch. then fill the reamining field and select a bill month. and then click calculate it will display the MCWD bill details and recored in the database.

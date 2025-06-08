@@ -15,7 +15,7 @@ if ($data === null) {
 // Validate required fields
 $required = ['acc_code', 'previous_reading', 'current_reading', 'monthbill'];
 foreach ($required as $field) {
-    if (empty($data[$field])) {
+    if (!isset($data[$field]) || $data[$field] === '' || $data[$field] === null) {
         echo json_encode(['error' => "Missing required field: $field"]);
         exit;
     }
@@ -57,8 +57,9 @@ try {
         pca, 
         pwa, 
         gross_current_bill, 
-        monthbill
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        monthbill,
+        created_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
 
     $success = $stmt->execute([
         $data['acc_code'],
