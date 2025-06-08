@@ -11,9 +11,9 @@
 body{
     background-color: #020202;
 }
-.parent-container, .login-container{
+.parent-container, .login-container, #searchcon{
     background-color: #020202;
-    padding: 5px 140px;
+    padding: 5px 120px;
     color: white;
     display: none;
     justify-content: right;
@@ -23,7 +23,7 @@ body{
 .login-container{
     display: flex;
 }
-.input-container{
+.input-container, .result-search-container{
     display: none;
     justify-content: right;
     align-items: center;
@@ -39,7 +39,7 @@ body{
     box-shadow: 0px 0px 10px 2px;
     width: 90vh;
     height: 60vh;
-    margin-right: 25vh;
+    margin-right: 32vh;
 }
 #login-con {
     display: inline-block;
@@ -101,21 +101,17 @@ body{
     padding: 0rem 3rem 0rem 0rem;
     color: white;
     justify-content: left;
-    margin-left: 3rem;
+    margin-left: 15vh;
     
 }
 #inp{
     padding: 0rem 3rem;
     height: auto;
     width: 18rem;
-
 }
-.parent-input-container{
-    background-color: #020202;
-    padding: 5px 140px;
-    color: white;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-top: 5vh;
+#searchcon {
+    display: none;
+    width: auto;
+    height: auto;
+    margin-left: -5vh;
 }

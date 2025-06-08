@@ -107,9 +107,9 @@
                             <h3 id="date">None</h3>
                         </ul>
                     </div>
-
                 </div>
             </div>
+            
         </div><br>
 
         <div class="parent-container" id="createcon">
@@ -150,7 +150,6 @@
                 </form>
             </div> 
             
-        <div class="parent-container" id="paymentcon">
             <div class="input-container" id="inp">
             <form method="post">
                 <h3>Payments</h3>
@@ -201,6 +200,47 @@
                 </form> 
             </div>
         </div>
+        
+        <div id="searchcon">
+            <div class="result-search-container" id="">
+                <table>
+                    <tr>
+                        <th>Account Code</th>
+                        <th>Consumer Name</th>
+                        <th>Gross Current Bill</th>
+                        <th>Month Bill</th>
+                        <th>Amount</th>
+                        <th>Change</th>
+                        <th>Mode of Payment</th>
+                        <th>Payment Date</th>
+                        <th>Paid</th>
+                    </tr>
+                    <tr id="data-search-row">
+                        <td>Test</td>
+                    </tr>
+                </table>
+                <div>
+                    
+                </div>
+            <form method="post">
+                <h3>Search</h3>
+                    <div>
+                        <label>Search By:</label>
+                        <select id="searchby">
+                            <option value="month bill">Month Bill</option>
+                            <option value="Charges ID">Charges ID</option>
+                            <option value="Payments ">Payments</option>
+                            <option value="Amount ">Amount </option>
+                            <option value="Mode of Payment ">Mode of Payment </option>
+                        </select>
+                     <div>
+                        <input type="number" placeholder="Search" class="input" id="searchterm" require></label>
+                    </div>
+                    <button type="button" class="button" id="search" name="action" value="">Search</button>
+                </form> 
+            </div>
+        </div>
+    </div>
      <script type="module" src="scripts/admin.js"></script>    
      <script type="module" src="scripts/index.js"></script>    
      <script type="module" src="scripts/crud.js"></script>  
