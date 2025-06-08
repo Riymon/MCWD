@@ -212,10 +212,51 @@ if ($action === 'create') {
                                     FROM consumer c
                                     LEFT JOIN charges ch ON c.acc_code = ch.acc_code
                                     LEFT JOIN payments p ON ch.charges_id = p.charges_id
-                                    WHERE p.amount = ?");
+                                    WHERE p.amount LIKE ?");
                 $stmt->execute([$search_term]);
                 $results = $stmt->fetchAll();
                 echo json_encode(['data' => $results]);
+                break;
+            case 'mode_of_payment':
+                $stmt = $pdo->prepare("SELECT c.acc_code, c.fullname, ch.charges_id, 
+                                        ch.gross_current_bill, ch.monthbill, p.payment_id, 
+                                        p.amount, p.changes, p.mode_of_payment, p.payment_date, 
+                                        CASE 
+                                            WHEN EXISTS (
+                                                SELECT 1 FROM charges 
+                                                WHERE amount = ch.gross_current_bill OR amount > ch.gross_current_bill
+                                            ) 
+                                            THEN 'Yes' ELSE 'No' END AS PAID
+                                    FROM consumer c
+                                    LEFT JOIN charges ch ON c.acc_code = ch.acc_code
+                                    LEFT JOIN payments p ON ch.charges_id = p.charges_id
+                                    WHERE p.mode_of_payment LIKE ?");
+                $stmt->execute(['%' . $search_term . '%']);
+                $results = $stmt->fetchAll();
+                echo json_encode(['data' => $results]);
+                break;
+            case 'paid':
+                $stmt = $pdo->prepare("SELECT c.acc_code, c.fullname, ch.charges_id, 
+                    ch.gross_current_bill, ch.monthbill, p.payment_id, 
+                    p.amount, p.changes, p.mode_of_payment, p.payment_date, 
+                    CASE 
+                        WHEN EXISTS (
+                            SELECT 1 FROM charges 
+                            WHERE amount = ch.gross_current_bill OR amount > ch.gross_current_bill
+                        ) 
+                        THEN 'Yes' ELSE 'No' END AS PAID
+                    FROM consumer c
+                    LEFT JOIN charges ch ON c.acc_code = ch.acc_code
+                    LEFT JOIN payments p ON ch.charges_id = p.charges_id");
+                $stmt->execute();
+                $results = $stmt->fetchAll();
+
+                // Filter results in PHP
+                $filtered = array_filter($results, function($row) use ($search_term) {
+                    return stripos($row['PAID'], $search_term) !== false;
+                });
+
+                echo json_encode(['data' => array_values($filtered)]);
                 break;
             default:
                 echo json_encode(['error' => 'Invalid search criteria']);
